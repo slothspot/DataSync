@@ -1,0 +1,11 @@
+/media/sda7/development/projects/datasync/bin:/media/sda7/development/eclipse-3.6/configuration/org.eclipse.osgi/bundles/978/1/.cp/lib/scala-library.jar:/media/sda7/development/eclipse-3.6/configuration/org.eclipse.osgi/bundles/978/1/.cp/lib/scala-dbc.jar:/media/sda7/development/eclipse-3.6/configuration/org.eclipse.osgi/bundles/978/1/.cp/lib/scala-swing.jar:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/resources.jar:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/rt.jar:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/jsse.jar:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/jce.jar:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/charsets.jar:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-6-sun-1.6.0.15/jre/lib/ext/dnsns.jar
+-------
+/media/sda7/development/projects/datasync/src/name/dmitrym/utils/MtabWrap.scala -> /media/sda7/development/projects/datasync/src/name/dmitrym/utils/MtabWrap.scala
+/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/src/name/dmitrym/utils/MtabWrap.scala
+/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala
+-------
+/media/sda7/development/projects/datasync/src/name/dmitrym/utils/MtabWrap.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/utils/MtabWrapper$.class
+/media/sda7/development/projects/datasync/src/name/dmitrym/utils/MtabWrap.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/utils/MtabWrapper.class
+/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/datasync/Datasync.class
+/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/datasync/Datasync$.class
+/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/datasync/Datasync$$anonfun$syncWithDefaultCfg$1.class
