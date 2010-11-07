@@ -3,6 +3,9 @@
  */
 package name.dmitrym.datasync
 
+import name.dmitrym.utils.MtabWrapper
+import java.io.File
+
 /**
  * DataSync main object, application entry point located here
  */
@@ -12,6 +15,23 @@ object Datasync {
      */
     def syncWithDefaultCfg {
       println( "Using default cfg: sync.cfg" )
+      val pwd = System.getenv( "PWD" )
+      println( "Current working directory: " + pwd )
+
+      val mp = MtabWrapper.listMountPoints
+      mp.map( s => println( "MountPoint: " + s ) )
+
+      def debugGoUp ( path : String ) {
+          println( "debugGoUp[dir]: " + path )
+          if( path != null ) {
+              val p = path + File.separator + "sync.cfg"
+              val f = new File( p )
+              println( "debugGoUp[file]: " + f.getCanonicalPath )
+              if ( !f.exists ) debugGoUp( f.getCanonicalFile.getParentFile.getParent )
+          }
+      }
+
+      debugGoUp( pwd )
     }
 
     /**
@@ -20,6 +40,13 @@ object Datasync {
      */
     def syncWithNamedCfg( cfgname : String ) {
         println( "Using cfg from params: " + cfgname )
+        val f = new File( cfgname )
+        if ( f.exists && f.canRead ) {
+            syncWithCfg( f.getCanonicalPath )
+        } else {
+            println( "Specified config file not found or not readable, falling back to defautlt config resolution routine" )
+            syncWithDefaultCfg
+        }
     }
 
     /**
@@ -58,15 +85,8 @@ object Datasync {
           version
       } else {
           val idx = args.indexOf( "-cfg" )
-          if ( idx > -1 ) {
-            try {
+          if ( idx > -1 && args.length > ( idx + 1 ) ) {
               syncWithNamedCfg( args( idx + 1 ) )
-            } catch {
-                case ex : Exception =>
-                  println( "Caugt exception: " + ex.getMessage )
-                  ex.printStackTrace
-                  syncWithDefaultCfg
-            }
           } else {
               syncWithDefaultCfg
           }
