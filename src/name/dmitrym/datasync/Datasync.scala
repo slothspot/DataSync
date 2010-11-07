@@ -18,20 +18,39 @@ object Datasync {
       val pwd = System.getenv( "PWD" )
       println( "Current working directory: " + pwd )
 
-      val mp = MtabWrapper.listMountPoints
-      mp.map( s => println( "MountPoint: " + s ) )
+      val mpl = MtabWrapper.listMountPoints
+      val mp = mpl.filter( p => pwd.startsWith( p ) ).sortWith( (s1, s2) => s1.length > s2.length ).head
 
-      def debugGoUp ( path : String ) {
-          println( "debugGoUp[dir]: " + path )
+      def lookupCfg( path : String ) : String = {
+          var cfgname = new String
           if( path != null ) {
               val p = path + File.separator + "sync.cfg"
               val f = new File( p )
-              println( "debugGoUp[file]: " + f.getCanonicalPath )
-              if ( !f.exists ) debugGoUp( f.getCanonicalFile.getParentFile.getParent )
+              if ( !f.exists ) {
+                  if( path != mp ) cfgname = lookupCfg( f.getCanonicalFile.getParentFile.getParent )
+              } else {
+                  if( f.canRead )
+                      cfgname = f.getCanonicalPath
+              }
+          }
+          if(cfgname.isEmpty) {
+              val hc = new File( System.getenv( "HOME" ) + File.separator + "sync.cfg" )
+              if( hc.exists && hc.canRead )
+                  hc.getCanonicalPath
+              else
+                  cfgname
+          } else {
+              cfgname
           }
       }
 
-      debugGoUp( pwd )
+      val cfg = lookupCfg( pwd )
+      if( !cfg.isEmpty ) {
+          println( "Trying to start sync with " + cfg + " for " + pwd )
+          syncWithCfg( cfg )
+      } else {
+          println("Suitable config not found")
+      }
     }
 
     /**

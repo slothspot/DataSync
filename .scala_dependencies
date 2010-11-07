@@ -4,8 +4,9 @@
 /media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/src/name/dmitrym/utils/MtabWrap.scala
 /media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala
 -------
+/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/datasync/Datasync$$anonfun$1.class
+/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/datasync/Datasync.class
+/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/datasync/Datasync$$anonfun$2.class
+/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/datasync/Datasync$.class
 /media/sda7/development/projects/datasync/src/name/dmitrym/utils/MtabWrap.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/utils/MtabWrapper$.class
 /media/sda7/development/projects/datasync/src/name/dmitrym/utils/MtabWrap.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/utils/MtabWrapper.class
-/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/datasync/Datasync.class
-/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/datasync/Datasync$.class
-/media/sda7/development/projects/datasync/src/name/dmitrym/datasync/Datasync.scala -> /media/sda7/development/projects/datasync/bin/name/dmitrym/datasync/Datasync$$anonfun$syncWithDefaultCfg$1.class
