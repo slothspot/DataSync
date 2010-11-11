@@ -2,9 +2,9 @@
 -------
 /opt/univ/datasync/src/name/dmitrym/syncspec/SyncSpec.scala -> /opt/univ/datasync/src/name/dmitrym/syncspec/SyncSpec.scala
 /opt/univ/datasync/src/name/dmitrym/syncspec/SyncSpec.scala -> /opt/univ/datasync/src/name/dmitrym/syncspec/Worker.scala
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala
 /opt/univ/datasync/src/name/dmitrym/datasync/Datasync.scala -> /opt/univ/datasync/src/name/dmitrym/datasync/Datasync.scala
 /opt/univ/datasync/src/name/dmitrym/datasync/Datasync.scala -> /opt/univ/datasync/src/name/dmitrym/utils/MtabWrap.scala
-/opt/univ/datasync/src/name/dmitrym/datasync/Datasync.scala -> /opt/univ/datasync/src/name/dmitrym/syncspec/Parser.scala
 /opt/univ/datasync/src/name/dmitrym/syncspec/Worker.scala -> /opt/univ/datasync/src/name/dmitrym/syncspec/Worker.scala
 /opt/univ/datasync/src/name/dmitrym/utils/MtabWrap.scala -> /opt/univ/datasync/src/name/dmitrym/utils/MtabWrap.scala
 /opt/univ/datasync/src/name/dmitrym/syncspec/Parser.scala -> /opt/univ/datasync/src/name/dmitrym/syncspec/Parser.scala
@@ -14,6 +14,16 @@
 /opt/univ/datasync/src/name/dmitrym/syncspec/SyncSpec.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/SyncSpec.class
 /opt/univ/datasync/src/name/dmitrym/syncspec/SyncSpec.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Expr.class
 /opt/univ/datasync/src/name/dmitrym/syncspec/SyncSpec.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/SyncSpec$.class
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Parser2.class
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Parser2$$anonfun$operation$3$$anonfun$apply$2.class
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Parser2$$anonfun$destination$1.class
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Parser2$$anonfun$source$1.class
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Parser2$$anonfun$operation$3.class
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Parser2$$anonfun$command$1.class
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Parser2$$anonfun$operation$2.class
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Parser2$$anonfun$operation$3$$anonfun$apply$1.class
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Parser2$$anonfun$operation$1.class
+/opt/univ/datasync/src/name/dmitrym/syncspec/Parser2.scala -> /opt/univ/datasync/bin/name/dmitrym/syncspec/Parser2$$anonfun$command$2.class
 /opt/univ/datasync/src/name/dmitrym/datasync/Datasync.scala -> /opt/univ/datasync/bin/name/dmitrym/datasync/Datasync$$anonfun$1.class
 /opt/univ/datasync/src/name/dmitrym/datasync/Datasync.scala -> /opt/univ/datasync/bin/name/dmitrym/datasync/Datasync.class
 /opt/univ/datasync/src/name/dmitrym/datasync/Datasync.scala -> /opt/univ/datasync/bin/name/dmitrym/datasync/Datasync$$anonfun$2.class
