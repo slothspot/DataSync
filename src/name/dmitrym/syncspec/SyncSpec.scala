@@ -1,37 +1,57 @@
-/**
- * @author Dmitry Melnichenko
- */
 package name.dmitrym.syncspec
 
-/**
- * case classes for operations representation
- */
-abstract class Expr
-/// copy (from "SRC") (to "DEST")
-/// copy (to "DEST") (from "SRC")
-/// sync (from "SRC") (to "DEST")
-/// sync (to "DEST") (from "SRC")
-/// move (from "SRC") (to "DEST")
-/// move (to "DEST") (from "SRC")
-case class SimpleOp(operator : String, left : (String,String), right : (String,String)) extends Expr
+import scala.Enumeration
+import scala.util.parsing.combinator.syntactical.StandardTokenParsers
 
-/**
- * Object for operations evaluation
- */
-object SyncSpec {
-    /**
-     * Evaluates given expression
-     * @param e expression to evaluate
-     */
-    def evaluate( e : Expr ) : Boolean = {
-        e match {
-            case SimpleOp("copy", ("from", from), ("to", to)) => Worker.copy(from, to)
-            case SimpleOp("copy", ("to", to), ("from", from)) => Worker.copy(from, to)
-            case SimpleOp("move", ("from", from), ("to", to)) => Worker.move(from, to)
-            case SimpleOp("move", ("to", to), ("from", from)) => Worker.move(from, to)
-            case SimpleOp("sync", ("from", from), ("to", to)) => Worker.sync(from, to)
-            case SimpleOp("sync", ("to", to), ("from", from)) => Worker.sync(from, to)
-            case _ => false
+class SyncSpec extends StandardTokenParsers {
+    object Command extends Enumeration {
+        type Command = Value
+        val Copy, Sync, Move = Value
+    }
+
+    object Location extends Enumeration {
+        type Location = Value
+        val Source, Destination = Value
+    }
+
+    lexical.reserved += ("copy", "move", "sync", "from", "to")
+
+    def operation = (command ~ source ~ destination | command ~ destination ~ source) ^^ {
+        case Command.Copy ~ l1 ~ l2 => (l1,l2) match {
+            case ((Location.Source, src), (Location.Destination, dest)) => Worker.copy(src, dest)
+            case ((Location.Destination, dest), (Location.Source, src)) => Worker.copy(src,dest)
+        }
+        case Command.Move ~ l1 ~ l2 => (l1,l2) match {
+            case ((Location.Source, src), (Location.Destination, dest)) => Worker.move(src, dest)
+            case ((Location.Destination, dest), (Location.Source, src)) => Worker.move(src, dest)
+        }
+        case Command.Sync ~ l1 ~ l2 => (l1,l2) match {
+            case ((Location.Source, src), (Location.Destination, dest)) => Worker.sync(src, dest)
+            case ((Location.Destination, dest), (Location.Source, src)) => Worker.sync(src, dest)
+        }
+    }
+
+    def command : Parser[Command.Command] = ("copy" | "move" | "sync") ^^ {
+        case "copy" => Command.Copy
+        case "move" => Command.Move
+        case "sync" => Command.Sync
+    }
+
+    def source : Parser[(Location.Location, String)] = ("from" ~ location) ^^ {
+        case "from" ~ loc => (Location.Source, loc)
+    }
+
+    def destination : Parser[(Location.Location, String)] = ("to" ~ location) ^^ {
+        case "to" ~ loc => (Location.Destination, loc)
+    }
+
+    def location = stringLit
+
+    def doMatchOperation( op : String ) = {
+        operation( new lexical.Scanner( op ) ) match {
+            case Success(s, _) => println("doMatchOperation: Success: " + s)
+            case Failure(s, _) => println("doMatchOperation: Failure: " + s)
+            case Error(s, _) => println("doMatchOperation: Error: " + s)
         }
     }
 }
