@@ -1,6 +1,6 @@
 package name.dmitrym.syncspec
 
-import java.io.File
+import java.io.{ File, FileInputStream, FileOutputStream }
 import scala.collection.mutable.ArrayBuilder
 
 /**
@@ -69,7 +69,24 @@ object Worker {
             val dstLst = listDir(dstF)
             val resLst = mergeForCopy(srcLst, dstLst)
             try {
-              resLst.foreach( e => println(e.getName + "; " + e.getParent + "; " + e.getSize + "; " + e.getLastModified) )
+              resLst.foreach( e => {
+                val fn = to + File.separator + e.getName
+                val sn = from + File.separator + e.getName
+                println("Target file name: " + fn)
+                println("Source file name: " + sn)
+                val dF = new File(fn)
+                val sF = new File(sn)
+                dF.createNewFile
+                val fis = new FileInputStream(sF)
+                val fos = new FileOutputStream(dF)
+                val buf = new Array[Byte](fis.available)
+                fis.read(buf)
+                fos.write(buf)
+                fis.close
+                fos.close
+                dF.setLastModified(e.getLastModified)
+                println(e.getName + "; " + e.getParent + "; " + e.getSize + "; " + e.getLastModified)
+              })
               true
             } catch {
               case e : Exception => println(e.getMessage); false
