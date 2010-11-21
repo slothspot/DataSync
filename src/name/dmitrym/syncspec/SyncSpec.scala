@@ -16,6 +16,10 @@ class SyncSpec extends StandardTokenParsers {
 
     lexical.reserved += ("copy", "move", "sync", "from", "to", "with")
 
+    def operation_ex : Parser[(Command.Command, String, String, String)] = (operation ~ rule) ^^ {
+      case op ~ r => (op._1, op._2, op._3, r)
+    }
+
     def operation : Parser[(Command.Command, String, String)] = (command ~ source ~ destination | command ~ destination ~ source ) ^^ {
         case Command.Copy ~ l1 ~ l2 => (l1,l2) match {
             case ((Location.Source, src), (Location.Destination, dest)) => (Command.Copy, src, dest)
@@ -53,10 +57,19 @@ class SyncSpec extends StandardTokenParsers {
     def ruleloc = stringLit
 
     def doMatchOperation( op : String ) = {
-        operation( new lexical.Scanner( op ) ) match {
-            case Success(s, _) => println("doMatchOperation: Success: " + s)
-            case Failure(s, _) => println("doMatchOperation: Failure: " + s)
-            case Error(s, _) => println("doMatchOperation: Error: " + s)
+        operation_ex( new lexical.Scanner( op ) ) match {
+          case Success(rt, _) => println(rt._1 + "; " + rt._2 + "; " + rt._3 + "; " + rt._4)
+          case NoSuccess(s, n) => println("operation_ex failure: " + s + "; next: " + n.source) ;operation( new lexical.Scanner( op ) ) match {
+            case Success(s, n) => {
+              println("doMatchOperation: Success: " + s + "; source: " + n.source)
+              s match {
+                case (Command.Copy, src, dst) => Worker.copy(src, dst)
+                case (Command.Sync, src, dst) => Worker.sync(src, dst)
+                case (Command.Move, src, dst) => Worker.move(src, dst)
+              }
+            }
+            case NoSuccess(s, n) => println("doMatchOperation: Failure: " + s + "; next: " + n.source)
+          }
         }
     }
 }
