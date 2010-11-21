@@ -106,8 +106,14 @@ object Worker {
                 fis.close
                 fos.close
                 dF.setLastModified(e.getLastModified)
-                //FIXME: for now deletes files but leaves empty directories
-                if( deleteSource ) sF.delete
+                if( deleteSource ) {
+                  sF.delete
+                  var p = sF.getParentFile
+                  while( p != null ) {
+                    if( p.list.length == 0) p.delete
+                    p = p.getParentFile
+                  }
+                }
                 println(e.getName + "; " + e.getParent + "; " + e.getSize + "; " + e.getLastModified)
               })
               true
