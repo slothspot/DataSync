@@ -29,8 +29,17 @@ object Worker {
         }
     }
 
+    /**
+     * Return directory listing as Array[SyncEntry]
+     * @param dir directory to generate listing from
+     */
     def listDir( dir : File ) : Array[SyncEntry] = listDir( dir, dir )
 
+    /**
+     * Return directory listing as Array[SyncEntry]
+     * @param parent parent to pass to SyncEntry ctor
+     * @param dir directory to generate listing from
+     */
     def listDir(parent : File, dir : File) : Array[SyncEntry] = {
         var filesList = new ArrayBuilder.ofRef[SyncEntry]
         val lst = dir.listFiles
@@ -59,6 +68,16 @@ object Worker {
      */
     def copy(from : String, to : String) : Boolean = {
         println("Simple copy of \"" + from + "\" to \"" + to + "\"")
+        copy(from, to, false)
+    }
+
+    /**
+     * Copy content of <i>from</i> path to <i>to</i> path and delete the source if needed
+     * @param from path to source folder
+     * @param to path to destination folder
+     * @param deleteSource delete the source file or no
+     */
+    def copy(from : String, to : String, deleteSource : Boolean) : Boolean = {
         val srcF = new File(from)
         if(! srcF.exists ) { false }
         else {
@@ -70,22 +89,25 @@ object Worker {
             val resLst = mergeForCopy(srcLst, dstLst)
             try {
               resLst.foreach( e => {
-                val fn = to + File.separator + e.getName
+                val dn = to + File.separator + e.getName
                 val sn = from + File.separator + e.getName
-                println("Target file name: " + fn)
+                println("Target file name: " + dn)
                 println("Source file name: " + sn)
-                val dF = new File(fn)
+                val dF = new File(dn)
                 val sF = new File(sn)
                 dF.getParentFile.mkdirs
                 dF.createNewFile
                 val fis = new FileInputStream(sF)
                 val fos = new FileOutputStream(dF)
+                // FIXME: current implementation works only for relatively small files due to in-memory buffer allocation for whole source file
                 val buf = new Array[Byte](fis.available)
                 fis.read(buf)
                 fos.write(buf)
                 fis.close
                 fos.close
                 dF.setLastModified(e.getLastModified)
+                //FIXME: for now deletes files but leaves empty directories
+                if( deleteSource ) sF.delete
                 println(e.getName + "; " + e.getParent + "; " + e.getSize + "; " + e.getLastModified)
               })
               true
@@ -103,16 +125,16 @@ object Worker {
      */
     def move(from : String, to : String) : Boolean = {
         println("Simple move of \"" + from + "\" to \"" + to + "\"")
-        false
+        copy(from, to, true)
     }
 
     /**
-     * Sync content of <i>from</i> path with <i>to</i> path
+     * Sync content of <i>from</i> path with <i>to</i> path; equivalent to <b>copy(from, to) && copy(to, from)</b>
      * @param from path to source folder
      * @param to path to destination folder
      */
     def sync(from : String, to : String) : Boolean = {
         println("Simple sync of \"" + from + "\" to \"" + to + "\"")
-        false
+        copy( from, to) && copy( to, from)
     }
 }
