@@ -3,8 +3,9 @@
  */
 package name.dmitrym.datasync
 
+import name.dmitrym.syncspec.SyncSpec
 import name.dmitrym.utils.MtabWrapper
-import java.io.File
+import java.io.{ File, FileReader, LineNumberReader }
 
 /**
  * DataSync main object, application entry point located here
@@ -74,6 +75,14 @@ object Datasync {
      */
     def syncWithCfg( cfgname : String ) {
       println( "Using cfg: " + cfgname )
+      val lnr = new LineNumberReader(new FileReader(cfgname))
+      var str = lnr.readLine
+      val ss = new SyncSpec
+      while( str != null ){
+        println(lnr.getLineNumber + ": " + str)
+        ss.doMatchOperation(str)
+        str = lnr.readLine
+      }
     }
 
     /**
