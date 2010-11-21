@@ -14,6 +14,19 @@ object Worker {
         def getName = name
         def getSize = size
         def getLastModified = lastModified
+        override def equals( o : Any ) = {
+          try {
+            val t = o.asInstanceOf[SyncEntry]
+            if( ! name.equals(t.getName) ) { false }
+            else {
+              if( lastModified < t.getLastModified) { false }
+              else true
+            }
+          }
+          catch {
+            case e : ClassCastException => println(e.getMessage); false
+          }
+        }
     }
 
     def listDir( dir : File ) : Array[SyncEntry] = listDir( dir, dir )
@@ -36,8 +49,7 @@ object Worker {
     def sortBySizeDsc( a : SyncEntry, b : SyncEntry ) = a.getSize > b.getSize
 
     def mergeForCopy( srcLst : Array[SyncEntry], dstLst : Array[SyncEntry] ) : Array[SyncEntry] = {
-      val resLst = new ArrayBuilder.ofRef[SyncEntry]
-      resLst.result
+      srcLst.filter( e => !dstLst.contains(e))
     }
 
     /**
@@ -48,16 +60,22 @@ object Worker {
     def copy(from : String, to : String) : Boolean = {
         println("Simple copy of \"" + from + "\" to \"" + to + "\"")
         val srcF = new File(from)
-        if(! srcF.exists ) false
-        val dstF = new File(to)
-        if(! dstF.exists && ! dstF.mkdirs ) false
-        val srcLst = listDir(srcF)
-        val dstLst = listDir(dstF)
-        val resLst = mergeForCopy(srcLst, dstLst)
-        //    1, 2, 3, 4, 5
-        //    1,    3, 4,
-        // =>    2,       5
-        false
+        if(! srcF.exists ) { false }
+        else {
+          val dstF = new File(to)
+          if(! dstF.exists && ! dstF.mkdirs ) { false }
+          else {
+            val srcLst = listDir(srcF)
+            val dstLst = listDir(dstF)
+            val resLst = mergeForCopy(srcLst, dstLst)
+            try {
+              resLst.foreach( e => println(e.getName + "; " + e.getParent + "; " + e.getSize + "; " + e.getLastModified) )
+              true
+            } catch {
+              case e : Exception => println(e.getMessage); false
+            }
+          }
+        }
     }
 
     /**
