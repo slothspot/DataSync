@@ -14,20 +14,20 @@ class SyncSpec extends StandardTokenParsers {
         val Source, Destination = Value
     }
 
-    lexical.reserved += ("copy", "move", "sync", "from", "to")
+    lexical.reserved += ("copy", "move", "sync", "from", "to", "with")
 
-    def operation = (command ~ source ~ destination | command ~ destination ~ source) ^^ {
+    def operation : Parser[(Command.Command, String, String)] = (command ~ source ~ destination | command ~ destination ~ source ) ^^ {
         case Command.Copy ~ l1 ~ l2 => (l1,l2) match {
-            case ((Location.Source, src), (Location.Destination, dest)) => Worker.copy(src, dest)
-            case ((Location.Destination, dest), (Location.Source, src)) => Worker.copy(src,dest)
+            case ((Location.Source, src), (Location.Destination, dest)) => (Command.Copy, src, dest)
+            case ((Location.Destination, dest), (Location.Source, src)) => (Command.Copy, src, dest)
         }
         case Command.Move ~ l1 ~ l2 => (l1,l2) match {
-            case ((Location.Source, src), (Location.Destination, dest)) => Worker.move(src, dest)
-            case ((Location.Destination, dest), (Location.Source, src)) => Worker.move(src, dest)
+            case ((Location.Source, src), (Location.Destination, dest)) => (Command.Move, src, dest)
+            case ((Location.Destination, dest), (Location.Source, src)) => (Command.Move, src, dest)
         }
         case Command.Sync ~ l1 ~ l2 => (l1,l2) match {
-            case ((Location.Source, src), (Location.Destination, dest)) => Worker.sync(src, dest)
-            case ((Location.Destination, dest), (Location.Source, src)) => Worker.sync(src, dest)
+            case ((Location.Source, src), (Location.Destination, dest)) => (Command.Sync, src, dest)
+            case ((Location.Destination, dest), (Location.Source, src)) => (Command.Sync, src, dest)
         }
     }
 
@@ -45,7 +45,12 @@ class SyncSpec extends StandardTokenParsers {
         case "to" ~ loc => (Location.Destination, loc)
     }
 
+    def rule : Parser[String] = ("with" ~ ruleloc) ^^ {
+        case "with" ~ loc => loc
+    }
+
     def location = stringLit
+    def ruleloc = stringLit
 
     def doMatchOperation( op : String ) = {
         operation( new lexical.Scanner( op ) ) match {
