@@ -76,6 +76,7 @@ object Worker {
                 println("Source file name: " + sn)
                 val dF = new File(fn)
                 val sF = new File(sn)
+                dF.getParentFile.mkdirs
                 dF.createNewFile
                 val fis = new FileInputStream(sF)
                 val fos = new FileOutputStream(dF)
