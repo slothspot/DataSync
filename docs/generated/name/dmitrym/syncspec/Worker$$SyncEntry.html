@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>name.dmitrym.syncspec.Worker</title>
+          <title>name.dmitrym.syncspec.Worker.SyncEntry</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
@@ -12,31 +12,27 @@
       <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
     
         </head>
-        <body class="value" onload="windowTitle();">
+        <body class="type" onload="windowTitle();">
 
-      <p id="owner"><a href="../../package.html" class="extype" name="name">name</a>.<a href="../package.html" class="extype" name="name.dmitrym">dmitrym</a>.<a href="package.html" class="extype" name="name.dmitrym.syncspec">syncspec</a></p>
+      <p id="owner"><a href="../../package.html" class="extype" name="name">name</a>.<a href="../package.html" class="extype" name="name.dmitrym">dmitrym</a>.<a href="package.html" class="extype" name="name.dmitrym.syncspec">syncspec</a>.<a href="Worker$.html" class="extype" name="name.dmitrym.syncspec.Worker">Worker</a></p>
 
       <div id="definition">
-        <img src="../../../lib/object_big.png" />
-        <h1>Worker</h1>
+        <img src="../../../lib/class_big.png" />
+        <h1>SyncEntry</h1>
       </div>
 
       <h4 class="signature" id="signature">
-      <span class="kind">object</span>
+      <span class="kind">class</span>
       <span class="symbol">
-        <span class="name">Worker</span>
+        <span class="name">SyncEntry</span>
         
         
         <span class="result"> extends AnyRef</span>
       </span>
       </h4>
-      <div class="fullcomment" id="comment"><div class="comment cmt"><p>Worker executes SyncSpec operations</p></div><div class="block">
+      <div class="fullcomment" id="comment"><div class="block">
             linear super types: AnyRef, <span class="extype" name="scala.Any">Any</span>
-          </div>
-            
-            
-            
-          </div>
+          </div></div>
 
       <div id="template">
 
@@ -49,7 +45,7 @@
           <div id="ancestors">
                 <span class="filtertype">Inherited</span>
                 <ol><li class="hideall">Hide All</li><li class="showall">Show all</li></ol>
-                <ol id="linearization"><li class="in" name="name.dmitrym.syncspec.Worker">Worker</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+                <ol id="linearization"><li class="in" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
               </div>
           <div id="visbl">
               <span class="filtertype">Visibility</span>
@@ -61,24 +57,36 @@
             </div>
         </div>
 
-        
-
-        <div class="types members" id="types">
-              <h3>Type Members</h3>
-              <ol><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker.SyncEntry">
-      <a id="SyncEntry:SyncEntry"></a>
-      <h4 class="signature"><a href="Worker$$SyncEntry.html">
-      <span class="kind">class</span>
+        <div class="members" id="constructors">
+              <h3>Instance constructors</h3>
+              <ol><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker.SyncEntry#this">
+      <a id="this:SyncEntry"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
       <span class="symbol">
         <span class="name">SyncEntry</span>
         
+        <span class="params">(<span name="parent">parent: <span class="extype" name="java.io.File">File</span></span>, <span name="f">f: <span class="extype" name="java.io.File">File</span></span>)</span>
         
-        <span class="result"> extends AnyRef</span>
       </span>
-      </a></h4>
+      </h4>
+      
+    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker.SyncEntry#this">
+      <a id="this:SyncEntry"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol">
+        <span class="name">SyncEntry</span>
+        
+        <span class="params">(<span name="parent">parent: String</span>, <span name="name">name: String</span>, <span name="size">size: <span class="extype" name="scala.Long">Long</span></span>, <span name="lastModified">lastModified: <span class="extype" name="scala.Long">Long</span></span>)</span>
+        
+      </span>
+      </h4>
       
     </li></ol>
             </div>
+
+        
 
         <div class="values members" id="values">
               <h3>Value Members</h3>
@@ -279,46 +287,6 @@ part of compilation it is not possible to check whether the contents of the list
             
           </div>
           
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#copy">
-      <a id="copy(String,String,Boolean):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">copy</span>
-        
-        <span class="params">(<span name="from">from: String</span>, <span name="to">to: String</span>, <span name="deleteSource">deleteSource: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Copy content of <i>from</i> path to <i>to</i> path and delete the source if needed</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Copy content of <i>from</i> path to <i>to</i> path and delete the source if needed</p></div><dl class="paramcmts block"><dt class="param">from</dt><dd class="cmt"><p>path to source folder</p></dd><dt class="param">to</dt><dd class="cmt"><p>path to destination folder</p></dd><dt class="param">deleteSource</dt><dd class="cmt"><p>delete the source file or no
-</p></dd></dl>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#copy">
-      <a id="copy(String,String):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">copy</span>
-        
-        <span class="params">(<span name="from">from: String</span>, <span name="to">to: String</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Copy content of <i>from</i> path to <i>to</i> path</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Copy content of <i>from</i> path to <i>to</i> path</p></div><dl class="paramcmts block"><dt class="param">from</dt><dd class="cmt"><p>path to source folder</p></dd><dt class="param">to</dt><dd class="cmt"><p>path to destination folder
-</p></dd></dl>
-            
-            
-            
-          </div>
-          
     </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#eq">
       <a id="eq(AnyRef):Boolean"></a>
       <h4 class="signature">
@@ -356,14 +324,14 @@ should be equal to each other (<code>o1 == o2</code>) and they should hash to th
             
           </div>
           
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#equals">
+    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker.SyncEntry#equals">
       <a id="equals(Any):Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
         <span class="name">equals</span>
         
-        <span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span>
+        <span class="params">(<span name="o">o: <span class="extype" name="scala.Any">Any</span></span>)</span>
         <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
@@ -380,30 +348,13 @@ Additionally, when overriding this method it is often necessary to override <cod
 that are &quot;equal&quot; (<code>o1.equals(o2)</code> returns <code>true</code>) hash to the same 
 scala.Int
 (<code>o1.hashCode.equals(o2.hashCode)</code>).
-</p></div><dl class="paramcmts block"><dt class="param">arg0</dt><dd class="cmt"><p>the object to compare against this object for equality.</p></dd><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
-          definition classes: AnyRef → Any
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p><code>true</code> if the receiver object is equivalent to the argument; <code>false</code> otherwise.</p></dd></dl><div class="block">
+          definition classes: <a href="" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a> → AnyRef → Any
         </div>
             
             
             
           </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#file2SyncEntry">
-      <a id="file2SyncEntry(File,File):SyncEntry"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name deprecated">file2SyncEntry</span>
-        
-        <span class="params">(<span name="parent">parent: <span class="extype" name="java.io.File">File</span></span>, <span name="f">f: <span class="extype" name="java.io.File">File</span></span>)</span>
-        <span class="result">: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block"><ol>deprecated:
-          <li><p>Deprecated by SyncEntry overloaded constructor</p></li>
-        </ol></div></div>
           
     </li><li visbl="prt" data-isabs="false" name="scala.AnyRef#finalize">
       <a id="finalize():Unit"></a>
@@ -454,6 +405,54 @@ there are no more references to the object.</p><p>The details of when and if the
             
           </div>
           
+    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker.SyncEntry#getLastModified">
+      <a id="getLastModified:Long"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getLastModified</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Long">Long</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker.SyncEntry#getName">
+      <a id="getName:String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getName</span>
+        
+        
+        <span class="result">: String</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker.SyncEntry#getParent">
+      <a id="getParent:String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getParent</span>
+        
+        
+        <span class="result">: String</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker.SyncEntry#getSize">
+      <a id="getSize:Long"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getSize</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Long">Long</span></span>
+      </span>
+      </h4>
+      
     </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#hashCode">
       <a id="hashCode():Int"></a>
       <h4 class="signature">
@@ -501,78 +500,6 @@ possible to check whether the contents of the list are of the requested typed.
         </div><div class="block">
           definition classes: Any
         </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#listDir">
-      <a id="listDir(File,File):Array[SyncEntry]"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">listDir</span>
-        
-        <span class="params">(<span name="parent">parent: <span class="extype" name="java.io.File">File</span></span>, <span name="dir">dir: <span class="extype" name="java.io.File">File</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a>]</span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Return directory listing as Array[SyncEntry]</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Return directory listing as Array[SyncEntry]</p></div><dl class="paramcmts block"><dt class="param">parent</dt><dd class="cmt"><p>parent to pass to SyncEntry ctor</p></dd><dt class="param">dir</dt><dd class="cmt"><p>directory to generate listing from
-</p></dd></dl>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#listDir">
-      <a id="listDir(File):Array[SyncEntry]"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">listDir</span>
-        
-        <span class="params">(<span name="dir">dir: <span class="extype" name="java.io.File">File</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a>]</span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Return directory listing as Array[SyncEntry]</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Return directory listing as Array[SyncEntry]</p></div><dl class="paramcmts block"><dt class="param">dir</dt><dd class="cmt"><p>directory to generate listing from
-</p></dd></dl>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#mergeForCopy">
-      <a id="mergeForCopy(Array[SyncEntry],Array[SyncEntry]):Array[SyncEntry]"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">mergeForCopy</span>
-        
-        <span class="params">(<span name="srcLst">srcLst: <span class="extype" name="scala.Array">Array</span>[<a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a>]</span>, <span name="dstLst">dstLst: <span class="extype" name="scala.Array">Array</span>[<a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a>]</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a>]</span>
-      </span>
-      </h4>
-      
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#move">
-      <a id="move(String,String):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">move</span>
-        
-        <span class="params">(<span name="from">from: String</span>, <span name="to">to: String</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Move content of <i>from</i> path to <i>to</i> path</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Move content of <i>from</i> path to <i>to</i> path</p></div><dl class="paramcmts block"><dt class="param">from</dt><dd class="cmt"><p>path to source folder</p></dd><dt class="param">to</dt><dd class="cmt"><p>path to destination folder
-</p></dd></dl>
             
             
             
@@ -643,74 +570,6 @@ possible to check whether the contents of the list are of the requested typed.
         </div><div class="block">
           definition classes: AnyRef
         </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#sortByNameAsc">
-      <a id="sortByNameAsc(SyncEntry,SyncEntry):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">sortByNameAsc</span>
-        
-        <span class="params">(<span name="a">a: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>, <span name="b">b: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#sortByNameDsc">
-      <a id="sortByNameDsc(SyncEntry,SyncEntry):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">sortByNameDsc</span>
-        
-        <span class="params">(<span name="a">a: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>, <span name="b">b: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#sortBySizeAsc">
-      <a id="sortBySizeAsc(SyncEntry,SyncEntry):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">sortBySizeAsc</span>
-        
-        <span class="params">(<span name="a">a: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>, <span name="b">b: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#sortBySizeDsc">
-      <a id="sortBySizeDsc(SyncEntry,SyncEntry):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">sortBySizeDsc</span>
-        
-        <span class="params">(<span name="a">a: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>, <span name="b">b: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#sync">
-      <a id="sync(String,String):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">sync</span>
-        
-        <span class="params">(<span name="from">from: String</span>, <span name="to">to: String</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Sync content of <i>from</i> path with <i>to</i> path; equivalent to <b>copy(from, to) &amp;&amp; copy(to, from)</b></p>
-            <div class="fullcomment"><div class="comment cmt"><p>Sync content of <i>from</i> path with <i>to</i> path; equivalent to <b>copy(from, to) &amp;&amp; copy(to, from)</b></p></div><dl class="paramcmts block"><dt class="param">from</dt><dd class="cmt"><p>path to source folder</p></dd><dt class="param">to</dt><dd class="cmt"><p>path to destination folder
-</p></dd></dl>
             
             
             

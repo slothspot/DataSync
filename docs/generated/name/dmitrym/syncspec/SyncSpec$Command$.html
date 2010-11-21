@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>name.dmitrym.syncspec.Worker</title>
+          <title>name.dmitrym.syncspec.SyncSpec.Command</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/template.css" rel="stylesheet" type="text/css" media="screen" />
@@ -14,29 +14,25 @@
         </head>
         <body class="value" onload="windowTitle();">
 
-      <p id="owner"><a href="../../package.html" class="extype" name="name">name</a>.<a href="../package.html" class="extype" name="name.dmitrym">dmitrym</a>.<a href="package.html" class="extype" name="name.dmitrym.syncspec">syncspec</a></p>
+      <p id="owner"><a href="../../package.html" class="extype" name="name">name</a>.<a href="../package.html" class="extype" name="name.dmitrym">dmitrym</a>.<a href="package.html" class="extype" name="name.dmitrym.syncspec">syncspec</a>.<a href="SyncSpec.html" class="extype" name="name.dmitrym.syncspec.SyncSpec">SyncSpec</a></p>
 
       <div id="definition">
         <img src="../../../lib/object_big.png" />
-        <h1>Worker</h1>
+        <h1>Command</h1>
       </div>
 
       <h4 class="signature" id="signature">
       <span class="kind">object</span>
       <span class="symbol">
-        <span class="name">Worker</span>
+        <span class="name">Command</span>
         
         
-        <span class="result"> extends AnyRef</span>
+        <span class="result"> extends <span class="extype" name="scala.Enumeration">Enumeration</span></span>
       </span>
       </h4>
-      <div class="fullcomment" id="comment"><div class="comment cmt"><p>Worker executes SyncSpec operations</p></div><div class="block">
-            linear super types: AnyRef, <span class="extype" name="scala.Any">Any</span>
-          </div>
-            
-            
-            
-          </div>
+      <div class="fullcomment" id="comment"><div class="block">
+            linear super types: <span class="extype" name="scala.Enumeration">Enumeration</span>, AnyRef, <span class="extype" name="scala.Any">Any</span>
+          </div></div>
 
       <div id="template">
 
@@ -49,7 +45,7 @@
           <div id="ancestors">
                 <span class="filtertype">Inherited</span>
                 <ol><li class="hideall">Hide All</li><li class="showall">Show all</li></ol>
-                <ol id="linearization"><li class="in" name="name.dmitrym.syncspec.Worker">Worker</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+                <ol id="linearization"><li class="in" name="name.dmitrym.syncspec.SyncSpec.Command">Command</li><li class="in" name="scala.Enumeration">Enumeration</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
               </div>
           <div id="visbl">
               <span class="filtertype">Visibility</span>
@@ -65,17 +61,17 @@
 
         <div class="types members" id="types">
               <h3>Type Members</h3>
-              <ol><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker.SyncEntry">
-      <a id="SyncEntry:SyncEntry"></a>
-      <h4 class="signature"><a href="Worker$$SyncEntry.html">
-      <span class="kind">class</span>
+              <ol><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.SyncSpec.Command#Command">
+      <a id="Command:Command"></a>
+      <h4 class="signature">
+      <span class="kind">type</span>
       <span class="symbol">
-        <span class="name">SyncEntry</span>
+        <span class="name">Command</span>
         
         
-        <span class="result"> extends AnyRef</span>
+        <span class="result"> = <span class="extype" name="scala.Enumeration.Value">Value</span></span>
       </span>
-      </a></h4>
+      </h4>
       
     </li></ol>
             </div>
@@ -230,6 +226,137 @@
             
           </div>
           
+    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.SyncSpec.Command#Copy">
+      <a id="Copy:Value"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">Copy</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Enumeration.Value">Value</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.SyncSpec.Command#Move">
+      <a id="Move:Value"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">Move</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Enumeration.Value">Value</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.SyncSpec.Command#Sync">
+      <a id="Sync:Value"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol">
+        <span class="name">Sync</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Enumeration.Value">Value</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="prt" data-isabs="false" name="scala.Enumeration#Value">
+      <a id="Value(Int,String):Value"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Value</span>
+        
+        <span class="params">(<span name="i">i: <span class="extype" name="scala.Int">Int</span></span>, <span name="name">name: String</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Enumeration.Value">Value</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: protected final 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div></div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scala.Enumeration#Value">
+      <a id="Value(String):Value"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Value</span>
+        
+        <span class="params">(<span name="name">name: String</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Enumeration.Value">Value</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: protected final 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div></div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scala.Enumeration#Value">
+      <a id="Value(Int):Value"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Value</span>
+        
+        <span class="params">(<span name="i">i: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Enumeration.Value">Value</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: protected final 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div></div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scala.Enumeration#Value">
+      <a id="Value:Value"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">Value</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Enumeration.Value">Value</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: protected final 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#apply">
+      <a id="apply(Int):Value"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">apply</span>
+        
+        <span class="params">(<span name="x">x: <span class="extype" name="scala.Int">Int</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Enumeration.Value">Value</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div></div>
+          
     </li><li visbl="pub" data-isabs="false" name="scala.Any#asInstanceOf">
       <a id="asInstanceOf[T0]:T0"></a>
       <h4 class="signature">
@@ -274,46 +401,6 @@ part of compilation it is not possible to check whether the contents of the list
         </div><div class="block">
           definition classes: AnyRef
         </div>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#copy">
-      <a id="copy(String,String,Boolean):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">copy</span>
-        
-        <span class="params">(<span name="from">from: String</span>, <span name="to">to: String</span>, <span name="deleteSource">deleteSource: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Copy content of <i>from</i> path to <i>to</i> path and delete the source if needed</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Copy content of <i>from</i> path to <i>to</i> path and delete the source if needed</p></div><dl class="paramcmts block"><dt class="param">from</dt><dd class="cmt"><p>path to source folder</p></dd><dt class="param">to</dt><dd class="cmt"><p>path to destination folder</p></dd><dt class="param">deleteSource</dt><dd class="cmt"><p>delete the source file or no
-</p></dd></dl>
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#copy">
-      <a id="copy(String,String):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">copy</span>
-        
-        <span class="params">(<span name="from">from: String</span>, <span name="to">to: String</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Copy content of <i>from</i> path to <i>to</i> path</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Copy content of <i>from</i> path to <i>to</i> path</p></div><dl class="paramcmts block"><dt class="param">from</dt><dd class="cmt"><p>path to source folder</p></dd><dt class="param">to</dt><dd class="cmt"><p>path to destination folder
-</p></dd></dl>
             
             
             
@@ -388,21 +475,42 @@ scala.Int
             
           </div>
           
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#file2SyncEntry">
-      <a id="file2SyncEntry(File,File):SyncEntry"></a>
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#exists">
+      <a id="exists((Value) ⇒ Boolean):Boolean"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name deprecated">file2SyncEntry</span>
+        <span class="name deprecated">exists</span>
         
-        <span class="params">(<span name="parent">parent: <span class="extype" name="java.io.File">File</span></span>, <span name="f">f: <span class="extype" name="java.io.File">File</span></span>)</span>
-        <span class="result">: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>
+        <span class="params">(<span name="p">p: (<span class="extype" name="scala.Enumeration.Value">Value</span>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       
             
-            <div class="fullcomment"><div class="block"><ol>deprecated:
-          <li><p>Deprecated by SyncEntry overloaded constructor</p></li>
+            <div class="fullcomment"><div class="block">
+          definition classes: Enumeration
+        </div><div class="block"><ol>deprecated:
+          <li><p>use values.exists instead</p></li>
+        </ol></div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#filter">
+      <a id="filter((Value) ⇒ Boolean):Iterator[Value]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name deprecated">filter</span>
+        
+        <span class="params">(<span name="p">p: (<span class="extype" name="scala.Enumeration.Value">Value</span>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
+        <span class="result">: Iterator[<span class="extype" name="scala.Enumeration.Value">Value</span>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Enumeration
+        </div><div class="block"><ol>deprecated:
+          <li><p>use values.filter instead</p></li>
         </ol></div></div>
           
     </li><li visbl="prt" data-isabs="false" name="scala.AnyRef#finalize">
@@ -429,6 +537,63 @@ there are no more references to the object.</p><p>The details of when and if the
             
             
           </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#flatMap">
+      <a id="flatMap[B]((Value) ⇒ Iterator[B]):Iterator[B]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name deprecated">flatMap</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (<span class="extype" name="scala.Enumeration.Value">Value</span>) ⇒ Iterator[B]</span>)</span>
+        <span class="result">: Iterator[B]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Enumeration
+        </div><div class="block"><ol>deprecated:
+          <li><p>use values.flatMap instead</p></li>
+        </ol></div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#forall">
+      <a id="forall((Value) ⇒ Boolean):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name deprecated">forall</span>
+        
+        <span class="params">(<span name="p">p: (<span class="extype" name="scala.Enumeration.Value">Value</span>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Enumeration
+        </div><div class="block"><ol>deprecated:
+          <li><p>use values.forall instead</p></li>
+        </ol></div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#foreach">
+      <a id="foreach((Value) ⇒ Unit):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name deprecated">foreach</span>
+        
+        <span class="params">(<span name="f">f: (<span class="extype" name="scala.Enumeration.Value">Value</span>) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span>
+        <span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Enumeration
+        </div><div class="block"><ol>deprecated:
+          <li><p>use values.foreach instead</p></li>
+        </ol></div></div>
           
     </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#getClass">
       <a id="getClass():java.lang.Class[_]"></a>
@@ -506,77 +671,83 @@ possible to check whether the contents of the list are of the requested typed.
             
           </div>
           
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#listDir">
-      <a id="listDir(File,File):Array[SyncEntry]"></a>
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#iterator">
+      <a id="iterator:Iterator[Value]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">listDir</span>
+        <span class="name deprecated">iterator</span>
         
-        <span class="params">(<span name="parent">parent: <span class="extype" name="java.io.File">File</span></span>, <span name="dir">dir: <span class="extype" name="java.io.File">File</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a>]</span>
+        
+        <span class="result">: Iterator[<span class="extype" name="scala.Enumeration.Value">Value</span>]</span>
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Return directory listing as Array[SyncEntry]</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Return directory listing as Array[SyncEntry]</p></div><dl class="paramcmts block"><dt class="param">parent</dt><dd class="cmt"><p>parent to pass to SyncEntry ctor</p></dd><dt class="param">dir</dt><dd class="cmt"><p>directory to generate listing from
-</p></dd></dl>
             
-            
-            
-          </div>
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div><div class="block"><ol>deprecated:
+          <li><p>use values.iterator instead</p></li>
+        </ol></div></div>
           
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#listDir">
-      <a id="listDir(File):Array[SyncEntry]"></a>
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#map">
+      <a id="map[B]((Value) ⇒ B):Iterator[B]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">listDir</span>
-        
-        <span class="params">(<span name="dir">dir: <span class="extype" name="java.io.File">File</span></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a>]</span>
+        <span class="name deprecated">map</span>
+        <span class="tparams">[<span name="B">B</span>]</span>
+        <span class="params">(<span name="f">f: (<span class="extype" name="scala.Enumeration.Value">Value</span>) ⇒ B</span>)</span>
+        <span class="result">: Iterator[B]</span>
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Return directory listing as Array[SyncEntry]</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Return directory listing as Array[SyncEntry]</p></div><dl class="paramcmts block"><dt class="param">dir</dt><dd class="cmt"><p>directory to generate listing from
-</p></dd></dl>
             
-            
-            
-          </div>
+            <div class="fullcomment"><div class="block">
+          definition classes: Enumeration
+        </div><div class="block"><ol>deprecated:
+          <li><p>use values.map instead</p></li>
+        </ol></div></div>
           
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#mergeForCopy">
-      <a id="mergeForCopy(Array[SyncEntry],Array[SyncEntry]):Array[SyncEntry]"></a>
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#maxId">
+      <a id="maxId:Int"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">mergeForCopy</span>
+        <span class="name">maxId</span>
         
-        <span class="params">(<span name="srcLst">srcLst: <span class="extype" name="scala.Array">Array</span>[<a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a>]</span>, <span name="dstLst">dstLst: <span class="extype" name="scala.Array">Array</span>[<a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a>]</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Array">Array</span>[<a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a>]</span>
+        
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4>
       
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#move">
-      <a id="move(String,String):Boolean"></a>
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#name">
+      <a id="name:String"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">move</span>
+        <span class="name deprecated">name</span>
         
-        <span class="params">(<span name="from">from: String</span>, <span name="to">to: String</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        
+        <span class="result">: String</span>
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Move content of <i>from</i> path to <i>to</i> path</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Move content of <i>from</i> path to <i>to</i> path</p></div><dl class="paramcmts block"><dt class="param">from</dt><dd class="cmt"><p>path to source folder</p></dd><dt class="param">to</dt><dd class="cmt"><p>path to destination folder
-</p></dd></dl>
             
-            
-            
-          </div>
+            <div class="fullcomment"><div class="block">
+          definition classes: Enumeration
+        </div><div class="block"><ol>deprecated:
+          <li><p>use toString instead</p></li>
+        </ol></div></div>
           
     </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#ne">
       <a id="ne(AnyRef):Boolean"></a>
@@ -601,6 +772,44 @@ possible to check whether the contents of the list are of the requested typed.
             
             
           </div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scala.Enumeration#nextId">
+      <a id="nextId:Int"></a>
+      <h4 class="signature">
+      <span class="kind">var</span>
+      <span class="symbol">
+        <span class="name">nextId</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: protected 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div></div>
+          
+    </li><li visbl="prt" data-isabs="false" name="scala.Enumeration#nextName">
+      <a id="nextName:Iterator[String]"></a>
+      <h4 class="signature">
+      <span class="kind">var</span>
+      <span class="symbol">
+        <span class="name">nextName</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.collection.Iterator">Iterator</span>[String]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: protected 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div></div>
           
     </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#notify">
       <a id="notify():Unit"></a>
@@ -648,73 +857,24 @@ possible to check whether the contents of the list are of the requested typed.
             
           </div>
           
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#sortByNameAsc">
-      <a id="sortByNameAsc(SyncEntry,SyncEntry):Boolean"></a>
+    </li><li visbl="prt" data-isabs="false" name="scala.Enumeration#readResolve">
+      <a id="readResolve():AnyRef"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">sortByNameAsc</span>
+        <span class="name">readResolve</span>
         
-        <span class="params">(<span name="a">a: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>, <span name="b">b: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="params">()</span>
+        <span class="result">: AnyRef</span>
       </span>
       </h4>
       
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#sortByNameDsc">
-      <a id="sortByNameDsc(SyncEntry,SyncEntry):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">sortByNameDsc</span>
-        
-        <span class="params">(<span name="a">a: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>, <span name="b">b: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#sortBySizeAsc">
-      <a id="sortBySizeAsc(SyncEntry,SyncEntry):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">sortBySizeAsc</span>
-        
-        <span class="params">(<span name="a">a: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>, <span name="b">b: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#sortBySizeDsc">
-      <a id="sortBySizeDsc(SyncEntry,SyncEntry):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">sortBySizeDsc</span>
-        
-        <span class="params">(<span name="a">a: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>, <span name="b">b: <a href="Worker$$SyncEntry.html" class="extype" name="name.dmitrym.syncspec.Worker.SyncEntry">SyncEntry</a></span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-    </li><li visbl="pub" data-isabs="false" name="name.dmitrym.syncspec.Worker#sync">
-      <a id="sync(String,String):Boolean"></a>
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">sync</span>
-        
-        <span class="params">(<span name="from">from: String</span>, <span name="to">to: String</span>)</span>
-        <span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Sync content of <i>from</i> path with <i>to</i> path; equivalent to <b>copy(from, to) &amp;&amp; copy(to, from)</b></p>
-            <div class="fullcomment"><div class="comment cmt"><p>Sync content of <i>from</i> path with <i>to</i> path; equivalent to <b>copy(from, to) &amp;&amp; copy(to, from)</b></p></div><dl class="paramcmts block"><dt class="param">from</dt><dd class="cmt"><p>path to source folder</p></dd><dt class="param">to</dt><dd class="cmt"><p>path to destination folder
-</p></dd></dl>
             
-            
-            
-          </div>
+            <div class="fullcomment"><div class="block">
+          attributes: protected 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div></div>
           
     </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#synchronized">
       <a id="synchronized[T0](T0):T0"></a>
@@ -735,7 +895,7 @@ possible to check whether the contents of the list are of the requested typed.
           definition classes: AnyRef
         </div></div>
           
-    </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#toString">
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#toString">
       <a id="toString():String"></a>
       <h4 class="signature">
       <span class="kind">def</span>
@@ -743,19 +903,55 @@ possible to check whether the contents of the list are of the requested typed.
         <span class="name">toString</span>
         
         <span class="params">()</span>
-        <span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="result">: String</span>
       </span>
       </h4>
       
             <p class="shortcomment cmt">Returns a string representation of the object.</p>
             <div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the object.</p><p>The default representation is platform dependent.
 </p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object.</p></dd></dl><div class="block">
-          definition classes: AnyRef → Any
+          definition classes: Enumeration → AnyRef → Any
         </div>
             
             
             
           </div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#valueOf">
+      <a id="valueOf(String):Option[Value]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name deprecated">valueOf</span>
+        
+        <span class="params">(<span name="s">s: String</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Enumeration.Value">Value</span>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Enumeration
+        </div><div class="block"><ol>deprecated:
+          <li><p>use withName instead</p></li>
+        </ol></div></div>
+          
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#values">
+      <a id="values:ValueSet"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">values</span>
+        
+        
+        <span class="result">: <span class="extype" name="scala.Enumeration.ValueSet">ValueSet</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Enumeration
+        </div></div>
           
     </li><li visbl="pub" data-isabs="false" name="scala.AnyRef#wait">
       <a id="wait():Unit"></a>
@@ -814,10 +1010,31 @@ possible to check whether the contents of the list are of the requested typed.
           definition classes: AnyRef
         </div></div>
           
+    </li><li visbl="pub" data-isabs="false" name="scala.Enumeration#withName">
+      <a id="withName(String):Value"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">withName</span>
+        
+        <span class="params">(<span name="s">s: String</span>)</span>
+        <span class="result">: <span class="extype" name="scala.Enumeration.Value">Value</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: final 
+        </div><div class="block">
+          definition classes: Enumeration
+        </div></div>
+          
     </li></ol>
             </div>
 
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.Enumeration">
+              <h3>Inherited from <span class="extype" name="scala.Enumeration">Enumeration</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from AnyRef</h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
