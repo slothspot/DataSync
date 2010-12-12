@@ -161,4 +161,48 @@ object Worker {
     println("Simple sync of \"" + from + "\" to \"" + to + "\"")
     copy(from, to) && copy(to, from)
   }
+
+  /**
+   * Copy content of <i>from</i> path to <i>to</i> path and delete the source if needed
+   * @param from path to source folder
+   * @param to path to destination folder
+   * @param p path to file with rename rules
+   */
+  def copy(from: String, to: String, p: String): Boolean = {
+    println("Simple copy of \"" + from + "\" to \"" + to + "\" with rules from \"" + p + "\"")
+    copy(from, to, p, false)
+  }
+
+  /**
+   * Copy content of <i>from</i> path to <i>to</i> path and delete the source if needed
+   * @param from path to source folder
+   * @param to path to destination folder
+   * @param deleteSource delete the source file or no
+   * @param p path to file with rename rules
+   */
+  def copy(from: String, to: String, p: String, deleteSource: Boolean): Boolean = {
+    false
+  }
+
+  /**
+   * Move content of <i>from</i> path to <i>to</i> path
+   * @param from path to source folder
+   * @param to path to destination folder
+   * @param p path to file with rename rules
+   */
+  def move(from: String, to: String, p: String): Boolean = {
+    println("Simple move of \"" + from + "\" to \"" + to + "\" with rules from \"" + p + "\"")
+    copy(from, to, p, true)
+  }
+
+  /**
+   * Sync content of <i>from</i> path with <i>to</i> path; equivalent to <b>copy(from, to) && copy(to, from)</b>
+   * @param from path to source folder
+   * @param to path to destination folder
+   * @param p path to file with rename rules
+   */
+  def sync(from: String, to: String, p: String): Boolean = {
+    println("Simple sync of \"" + from + "\" to \"" + to + "\" with rules from \"" + p + "\"")
+    copy(from, to, p) && copy(to, from, p)
+  }
 }

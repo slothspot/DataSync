@@ -15,7 +15,7 @@ class SyncSpec extends StandardTokenParsers {
     val Source, Destination = Value
   }
 
-  lexical.reserved += ("copy", "move", "sync", "from", "to", "with")
+  lexical.reserved += ("copy", "move", "sync", "from", "to", "with", "=>")
 
   def operation_ex: Parser[(Command.Command, String, String, String)] = (operation ~ rule) ^^ {
     case op ~ r => (op._1, op._2, op._3, r)
@@ -58,11 +58,24 @@ class SyncSpec extends StandardTokenParsers {
 
   def ruleloc = stringLit
 
+  def origin = stringLit
+
+  def target = stringLit
+
+  def renamePattern: Parser[(String, String)] = (origin ~ "=>" ~ target) ^^ {
+    case origin ~ "=>" ~ target => (origin, target)
+  }
+
   def doMatchOperation(op: String) = {
     operation_ex(new lexical.Scanner(op)) match {
       case Success(rt, n) =>
         println("Source: " + n.source)
         println(rt._1 + "; " + rt._2 + "; " + rt._3 + "; " + rt._4)
+        rt match {
+          case (Command.Copy, src, dst, p) => Worker.copy(src, dst, p)
+          case (Command.Move, src, dst, p) => Worker.move(src, dst, p)
+          case (Command.Sync, src, dst, p) => Worker.sync(src, dst, p)
+        }
       case NoSuccess(s, n) =>
         println("operation_ex failure: " + s + "; next: " + n.source)
         operation(new lexical.Scanner(op)) match {
@@ -76,6 +89,15 @@ class SyncSpec extends StandardTokenParsers {
           }
           case NoSuccess(s, n) => println("doMatchOperation: Failure: " + s + "; next: " + n.source)
         }
+    }
+  }
+
+  def doMatchPattern(p: String) = {
+    renamePattern(new lexical.Scanner(p)) match {
+      case Success(rt, n) =>
+        println(rt._1 + " goes to " + rt._2)
+      case NoSuccess(s, n) =>
+        println("doMatchPattern: Failure: " + s + "; next: " + n.source)
     }
   }
 }
