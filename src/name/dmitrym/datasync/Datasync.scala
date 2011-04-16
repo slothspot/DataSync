@@ -116,18 +116,18 @@ object Datasync {
     } else if (args.contains("-version")) {
       version
     } else {
-
-      var srcRoot = new String
-      var dstRoot = new String
       var idx = args.indexOf("-src-root")
-      if(idx > -1 && args.length > (idx + 1)){
-        srcRoot = args(idx + 1)
+      val srcRoot = if(idx > -1 && args.length > (idx + 1)){
+        args(idx + 1)
+      } else {
+        ""
       }
       idx = args.indexOf("-dst-root")
-      if(idx > -1 && args.length > (idx + 1)){
-        dstRoot = args(idx + 1)
+      val dstRoot = if(idx > -1 && args.length > (idx + 1)){
+        args(idx + 1)
+      } else {
+        ""
       }
-
       idx = args.indexOf("-cfg")
       if (idx > -1 && args.length > (idx + 1)) {
         syncWithNamedCfg(args(idx + 1), srcRoot, dstRoot)
