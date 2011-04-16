@@ -128,10 +128,12 @@ object Worker {
             dF.createNewFile
             val fis = new FileInputStream(sF)
             val fos = new FileOutputStream(dF)
-            // FIXME: current implementation works only for relatively small files due to in-memory buffer allocation for whole source file
-            val buf = new Array[Byte](fis.available)
-            fis.read(buf)
-            fos.write(buf)
+            val buf = new Array[Byte](64 * 1024)
+            var amount = fis.read(buf, 0, buf.size)
+            while(amount != 0){
+              fos.write(buf, 0, amount)
+              amount = fis.read(buf, 0, buf.size)
+            }
             fis.close
             fos.close
             dF.setLastModified(e.getLastModified)
