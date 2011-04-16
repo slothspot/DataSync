@@ -1,7 +1,8 @@
 package name.dmitrym.syncspec
 
-import java.io.{File, FileInputStream, FileOutputStream}
 import scala.collection.mutable.ArrayBuilder
+import java.io._
+import java.util.regex.{PatternSyntaxException, Pattern}
 
 /**
  * Worker executes SyncSpec operations
@@ -181,6 +182,29 @@ object Worker {
    * @param p path to file with rename rules
    */
   private def copy(from: String, to: String, p: String, deleteSource: Boolean): Boolean = {
+    def buildPatternsMap(p: String) = {
+      val f = new File(p)
+      val res = new ArrayBuilder.ofRef[(Pattern,Pattern)]
+      if(f.exists && f.isFile && !f.canRead) {
+        val lnr = new LineNumberReader(new FileReader(f))
+        val ss = new SyncSpec
+        var str = lnr.readLine
+        while(str != null){
+          val rt = ss.doMatchPattern(str)
+          try {
+            val p1 = Pattern.compile(rt.get._1)
+            val p2 = Pattern.compile(rt.get._2)
+            res += p1 -> p2
+          } catch {
+            case e: PatternSyntaxException => println(e.getMessage)
+            case e: NoSuchElementException => println(e.getMessage)
+          }
+          str = lnr.readLine
+        }
+      }
+      res
+    }
+    val patternsMap = buildPatternsMap(p)
     false
   }
 

@@ -92,12 +92,14 @@ class SyncSpec extends StandardTokenParsers {
     }
   }
 
-  def doMatchPattern(p: String) = {
+  def doMatchPattern(p: String): Option[(String,String)] = {
     renamePattern(new lexical.Scanner(p)) match {
       case Success(rt, n) =>
         println(rt._1 + " goes to " + rt._2)
+        Some(rt._1 -> rt._2)
       case NoSuccess(s, n) =>
         println("doMatchPattern: Failure: " + s + "; next: " + n.source)
+        None
     }
   }
 }
