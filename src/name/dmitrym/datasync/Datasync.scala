@@ -3,9 +3,9 @@
  */
 package name.dmitrym.datasync
 
-import name.dmitrym.syncspec.SyncSpec
 import name.dmitrym.utils.MtabWrapper
 import java.io.{File, FileReader, LineNumberReader}
+import name.dmitrym.syncspec.{Worker, SyncSpec}
 
 /**
  * DataSync main object, application entry point located here
@@ -14,7 +14,7 @@ object Datasync {
   /**
    * used to initialize sync with default cfg
    */
-  def syncWithDefaultCfg {
+  def syncWithDefaultCfg(srcRoot: String, dstRoot: String ) {
     println("Using default cfg: sync.cfg")
     val pwd = System.getenv("PWD")
     println("Current working directory: " + pwd)
@@ -48,7 +48,7 @@ object Datasync {
     val cfg = lookupCfg(pwd)
     if (!cfg.isEmpty) {
       println("Trying to start sync with " + cfg + " for " + pwd)
-      syncWithCfg(cfg)
+      syncWithCfg(cfg, srcRoot, dstRoot)
     } else {
       println("Suitable config not found")
     }
@@ -58,14 +58,14 @@ object Datasync {
    * used to initialize sync with specified config
    * @param cfgname specified config file name
    */
-  def syncWithNamedCfg(cfgname: String) {
+  def syncWithNamedCfg(cfgname: String, srcRoot: String, dstRoot: String) {
     println("Using cfg from params: " + cfgname)
     val f = new File(cfgname)
     if (f.exists && f.canRead) {
-      syncWithCfg(f.getCanonicalPath)
+      syncWithCfg(f.getCanonicalPath, srcRoot, dstRoot)
     } else {
       println("Specified config file not found or not readable, falling back to defautlt config resolution routine")
-      syncWithDefaultCfg
+      syncWithDefaultCfg(srcRoot, dstRoot)
     }
   }
 
@@ -73,11 +73,13 @@ object Datasync {
    * starts sync process with specified config
    * @param cfgname specified full path to config file
    */
-  def syncWithCfg(cfgname: String) {
-    println("Using cfg: " + cfgname)
+  def syncWithCfg(cfgname: String, srcRoot: String, dstRoot: String) {
+    println("Using cfg: " + cfgname + "[srcRoot: " + srcRoot + "; dstRoot: " + dstRoot + "]")
     val lnr = new LineNumberReader(new FileReader(cfgname))
     var str = lnr.readLine
     val ss = new SyncSpec
+    if(!srcRoot.isEmpty) Worker.setSrcRoot(srcRoot)
+    if(!dstRoot.isEmpty) Worker.setDstRoot(dstRoot)
     while (str != null) {
       println(lnr.getLineNumber + ": " + str)
       ss.doMatchOperation(str)
@@ -93,6 +95,8 @@ object Datasync {
     println("\t-help\t\tprints this help message")
     println("\t-version\tprints program version")
     println("\t-cfg [filename]\tspecifies config file to use")
+    println("\t-src-root [dirname]\tspecifies source root dir for syncing")
+    println("\t-dst-root [dirname]\tspecifies destination root dir for syncing")
   }
 
   /**
@@ -112,11 +116,23 @@ object Datasync {
     } else if (args.contains("-version")) {
       version
     } else {
-      val idx = args.indexOf("-cfg")
+
+      var srcRoot = new String
+      var dstRoot = new String
+      var idx = args.indexOf("-src-root")
+      if(idx > -1 && args.length > (idx + 1)){
+        srcRoot = args(idx + 1)
+      }
+      idx = args.indexOf("-dst-root")
+      if(idx > -1 && args.length > (idx + 1)){
+        dstRoot = args(idx + 1)
+      }
+
+      idx = args.indexOf("-cfg")
       if (idx > -1 && args.length > (idx + 1)) {
-        syncWithNamedCfg(args(idx + 1))
+        syncWithNamedCfg(args(idx + 1), srcRoot, dstRoot)
       } else {
-        syncWithDefaultCfg
+        syncWithDefaultCfg(srcRoot, dstRoot)
       }
     }
   }

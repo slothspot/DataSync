@@ -10,6 +10,14 @@ import java.util.regex.{PatternSyntaxException, Pattern}
  */
 object Worker {
 
+  var srcRoot: String = ""
+  def getSrcRoot = srcRoot
+  def setSrcRoot(root: String){ srcRoot = root }
+
+  var dstRoot: String = ""
+  def getDstRoot = dstRoot
+  def setDstRoot(root: String){ dstRoot = root }
+
   private class SyncEntry(parent: String, name: String, size: Long, lastModified: Long) {
     def this(parent: File, f: File) = this (parent.getCanonicalPath, f.getCanonicalPath.substring(parent.getCanonicalPath.length + 1), f.length, f.lastModified)
 
@@ -93,12 +101,12 @@ object Worker {
    * @param deleteSource delete the source file or no
    */
   private def copy(from: String, to: String, deleteSource: Boolean): Boolean = {
-    val srcF = new File(from)
+    val srcF = new File(srcRoot + File.separator + from)
     if (!srcF.exists) {
       false
     }
     else {
-      val dstF = new File(to)
+      val dstF = new File(dstRoot + File.separator + to)
       if (!dstF.exists && !dstF.mkdirs) {
         false
       }
