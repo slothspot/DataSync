@@ -118,8 +118,8 @@ object Worker {
         val resLst = mergeForCopy(srcLst, dstLst)
         try {
           resLst.foreach(e => {
-            val dn = to + File.separator + e.getName
-            val sn = from + File.separator + e.getName
+            val dn = dstF.getCanonicalPath + File.separator + e.getName
+            val sn = srcF.getCanonicalPath + File.separator + e.getName
             println("Target file name: " + dn)
             println("Source file name: " + sn)
             val dF = new File(dn)
