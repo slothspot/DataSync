@@ -103,11 +103,13 @@ object Worker {
   private def copy(from: String, to: String, deleteSource: Boolean): Boolean = {
     val srcF = new File(srcRoot + File.separator + from)
     if (!srcF.exists) {
+      println(srcF.getCanonicalPath + ": source directory does not exist")
       false
     }
     else {
       val dstF = new File(dstRoot + File.separator + to)
       if (!dstF.exists && !dstF.mkdirs) {
+        println(dstF.getCanonicalPath + ": destination directory does not exist and can't be created")
         false
       }
       else {
