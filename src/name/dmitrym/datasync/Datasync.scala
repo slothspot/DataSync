@@ -23,17 +23,15 @@ object Datasync {
     val mp = mpl.filter(p => pwd.startsWith(p)).sortWith((s1, s2) => s1.length > s2.length).head
 
     def lookupCfg(path: String): String = {
-      var cfgname = new String
-      if (path != null) {
+      val cfgname = if (path != null) {
         val p = path + File.separator + "sync.cfg"
         val f = new File(p)
-        if (!f.exists) {
-          if (path != mp) cfgname = lookupCfg(f.getCanonicalFile.getParentFile.getParent)
-        } else {
-          if (f.canRead)
-            cfgname = f.getCanonicalPath
-        }
-      }
+        if (!f.exists && path != mp) {
+          lookupCfg(f.getCanonicalFile.getParentFile.getParent)
+        } else if (f.canRead) {
+          f.getCanonicalPath
+        } else ""
+      } else ""
       if (cfgname.isEmpty) {
         val hc = new File(System.getenv("HOME") + File.separator + "sync.cfg")
         if (hc.exists && hc.canRead)
