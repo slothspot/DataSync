@@ -88,7 +88,7 @@ object Datasync {
   /**
    * process help command-line option
    */
-  def help {
+  def help() {
     println("DataSync - data synchronizer with configs written in SyncSpec")
     println("\t-help\t\tprints this help message")
     println("\t-version\tprints program version")
@@ -100,7 +100,7 @@ object Datasync {
   /**
    * process version command-line option
    */
-  def version {
+  def version() {
     println("DataSync version 0.0.1 -- Copyright 2010, Dmitry Melnichenko")
   }
 
@@ -110,9 +110,9 @@ object Datasync {
    */
   def processCommandLine(args: Array[String]) {
     if (args.contains("-help")) {
-      help
+      help()
     } else if (args.contains("-version")) {
-      version
+      version()
     } else {
       var idx = args.indexOf("-src-root")
       val srcRoot = if(idx > -1 && args.length > (idx + 1)){
