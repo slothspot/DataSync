@@ -66,11 +66,8 @@ object Worker {
       if (!f.isDirectory) filesList += new SyncEntry(parent, f)
       else listDir(parent, f).foreach(f => filesList += f)
     )
-    filesList.result.sortWith(sortByNameAsc)
+    filesList.result().sortWith(sortByNameAsc)
   }
-
-  @deprecated("Deprecated by SyncEntry overloaded constructor")
-  private def file2SyncEntry(parent: File, f: File) = new SyncEntry(parent.getCanonicalPath, f.getCanonicalPath.substring(parent.getCanonicalPath.length + 1), f.length, f.lastModified)
 
   private def sortByNameAsc(a: SyncEntry, b: SyncEntry) = a.getName.compareToIgnoreCase(b.getName) < 0
 
@@ -134,8 +131,8 @@ object Worker {
               fos.write(buf, 0, amount)
               amount = fis.read(buf, 0, buf.size)
             }
-            fis.close
-            fos.close
+            fis.close()
+            fos.close()
             dF.setLastModified(e.getLastModified)
             if (deleteSource) {
               sF.delete
