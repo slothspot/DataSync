@@ -50,13 +50,11 @@ class SyncSpec extends StandardTokenParsers {
     case "to" ~ loc => (Location.Destination, loc)
   }
 
-  def rule: Parser[String] = ("with" ~ ruleloc) ^^ {
+  def rule: Parser[String] = ("with" ~ location) ^^ {
     case "with" ~ loc => loc
   }
 
   def location = stringLit
-
-  def ruleloc = stringLit
 
   def origin = stringLit
 
